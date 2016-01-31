@@ -1,0 +1,10 @@
+<div class="handle">:::</div>
+<div class="name" dnd-nodrag>
+  <input type="text" ng-model="item.message" class="background-{{item.objectType}} input-sm">
+  <button type="button" class="btn btn-danger btn-xs" ng-click="trip.removeItem($index)">
+    <i class="fa fa-trash"></i>
+  </button>
+  <button type="button" class="btn btn-info btn-xs" ng-click="trip.centerMap(item)">
+    <i class="fa fa-crosshairs"></i>
+  </button>
+</div>

@@ -1,0 +1,32 @@
+<div class="row marketing">
+  <a type="button" class="btn btn-primary btn-lg btn-block" ng-href="/#/trip/new">Add New Trip</a>
+  <table class="table table-striped" ng-if="ctrl.list.length>0">
+    <thead>
+    <tr>
+      <td>
+        ID
+      </td>
+      <td>
+        Name
+      </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="trip in ctrl.list track by trip.id">
+      <td>
+        {{trip.id}}
+      </td>
+      <td>{{trip.value.name }}</td>
+      <td>
+        <a ng-href="#/trip/{{trip.id}}" class="btn btn-info">
+          <i class="fa fa-pencil-square-o"></i> Edit
+        </a>
+        <button type="button" class="btn btn-danger" ng-click="ctrl.removeTrip(trip.id)">
+          <i class="fa fa-trash"></i>
+        </button>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

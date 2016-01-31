@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label for="tripName" class="col-sm-2 control-label">Trip Name</label>
+        <div class="col-sm-10">
+          <input type="name" class="form-control" id="tripName" placeholder="Trip Name" ng-model="trip.tripName">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-primary" ng-click="trip.saveMap()">
+      <i class="fa fa-save"></i> Save Trip
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-5 typesDemo">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4 class="panel-title ng-binding">List of Trip Points and Paths</h4>
+      </div>
+      <div class="panel-body">
+        <ul dnd-list="trip.list">
+          <li ng-repeat="item in trip.list"
+              dnd-allowed-types="['dfsd']"
+              dnd-type="item.type"
+              dnd-moved="trip.list.splice($index, 1)"
+              dnd-draggable="item"
+              ng-include="'/views/'+item.objectType+'.html'"
+              class="background-{{item.objectType}}"
+          >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <map-wrapper map-obj="{{trip.map}}" map-center="trip.center"></map-wrapper>
+  </div>
+</div>
+<!--<div class="row">-->
+  <!--<pre>-->
+     <!--{{trip.map | json}}-->
+    <!--</pre>-->
+<!--</div>-->
+
+

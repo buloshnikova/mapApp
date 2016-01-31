@@ -1,0 +1,35 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h4 class="panel-title ng-binding">
+      <input type="text" ng-model="item.message" class="background-{{item.objectType}} input-md">
+      <button type="button" class="btn btn-danger btn-xs" ng-click="trip.removeItem($index)">
+        <i class="fa fa-trash"></i>
+      </button>
+      <button type="button" class="btn btn-info btn-xs" ng-click="trip.centerToPath(item)">
+        <i class="fa fa-crosshairs"></i>
+      </button>
+    </h4>
+  </div>
+  <div class="panel-body">
+    <ul dnd-list="item.latlngs">
+      <li ng-repeat="innerItem in item.latlngs"
+          dnd-type="item.type"
+          dnd-allowed-types="['point']"
+          dnd-moved="item.latlngs.splice($index, 1)"
+          class="background-{{item.objectType}}"
+          dnd-draggable="innerItem">
+        <div class="handle">:::</div>
+        <div class="name" dnd-nodrag>
+          <input type="text" ng-model="innerItem.message" class="background-{{item.objectType}} input-sm">
+          <button type="button" class="btn btn-danger btn-xs" ng-click="trip.removePathItem(item.id,$index)">
+            <i class="fa fa-trash"></i>
+          </button>
+          <button type="button" class="btn btn-info btn-xs" ng-click="trip.centerMap(innerItem)">
+            <i class="fa fa-crosshairs"></i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
